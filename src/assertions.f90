@@ -2,6 +2,7 @@ MODULE FUTF_ASSERTIONS
     USE FUTF_SUITE, ONLY: FUTF_PASSED, FUTF_EXIT_CODE, &
             REGISTER_PASSED, REGISTER_FAILED, INFO_STRINGS
     USE FUTF_UTILITIES, ONLY: APPEND_CHAR
+    USE, INTRINSIC :: iso_fortran_env, ONLY: wp => real64
 
     IMPLICIT NONE
 
@@ -338,7 +339,7 @@ MODULE FUTF_ASSERTIONS
     ! ****************************** SINGLE ********************************* !
     ! - REAL(8)
     SUBROUTINE ASSERT_EQUAL_REAL_8BYTE(REAL_1, REAL_2)
-        REAL(8), INTENT(IN) :: REAL_1, REAL_2
+        REAL(wp), INTENT(IN) :: REAL_1, REAL_2
 
         IF(REAL_1 == REAL_2) THEN
             CALL REGISTER_PASSED
